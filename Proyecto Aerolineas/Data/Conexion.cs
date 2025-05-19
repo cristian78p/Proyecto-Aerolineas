@@ -14,7 +14,7 @@ namespace Proyecto_Aerolineas.Data
 
         private Conexion()
         {
-            string cadena = "Data Source=localhost;Initial Catalog=GestionAerolineas;Integrated Security=True;";
+            string cadena = "Server=DESKTOP-E8CTSRV;Database=AerolineaDB;Trusted_Connection=True;";
             conexion = new SqlConnection(cadena);
         }
 

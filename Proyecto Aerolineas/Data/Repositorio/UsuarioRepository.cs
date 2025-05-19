@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Aerolineas.Data.Repositorio
 {
-    internal class UsuarioRepository : IUsuarioRepository
+    public class UsuarioRepository : IUsuarioRepository
     {
         private readonly SqlConnection conexion;
 
@@ -101,7 +101,7 @@ namespace Proyecto_Aerolineas.Data.Repositorio
             return usuario;
         }
 
-        public void Registrar(Usuario usuario)
+        public bool Registrar (Usuario usuario)
         {
             try
             {
@@ -117,10 +117,13 @@ namespace Proyecto_Aerolineas.Data.Repositorio
                 cmd.Parameters.AddWithValue("@Telefono", usuario.Telefono);
 
                 cmd.ExecuteNonQuery();
+
+                return true;
             }
             catch (Exception ex)
             {
                 throw new Exception("Error al registrar usuario: " + ex.Message);
+                return false;
             }
             finally
             {

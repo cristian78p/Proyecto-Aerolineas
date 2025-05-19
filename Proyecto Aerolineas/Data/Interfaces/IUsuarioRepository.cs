@@ -11,6 +11,6 @@ namespace Proyecto_Aerolineas.Data.Interfaces
     {
         Usuario ObtenerPorEmailYPassword(string email, string password);
         Usuario ObtenerPorId(int id);
-        void Registrar(Usuario usuario);
+        bool Registrar(Usuario usuario);
     }
 }
