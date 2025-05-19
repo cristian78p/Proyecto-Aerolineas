@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Aerolineas.Data.Interfaces
 {
-    internal interface IUsuarioRepository
+    public interface IUsuarioRepository
     {
         Usuario ObtenerPorEmailYPassword(string email, string password);
         Usuario ObtenerPorId(int id);

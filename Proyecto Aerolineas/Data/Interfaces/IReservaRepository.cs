@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Aerolineas.Data.Interfaces
 {
-    internal interface IReservaRepository
+    public interface IReservaRepository
     {
         List<Reserva> ObtenerPorUsuario(int usuarioId);
         void Crear(Reserva reserva);
