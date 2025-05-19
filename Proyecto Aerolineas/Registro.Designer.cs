@@ -134,6 +134,7 @@
             this.lblInicioSesion.TabIndex = 8;
             this.lblInicioSesion.TabStop = true;
             this.lblInicioSesion.Text = "aquí";
+            this.lblInicioSesion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblInicioSesion_LinkClicked);
             // 
             // Registro
             // 

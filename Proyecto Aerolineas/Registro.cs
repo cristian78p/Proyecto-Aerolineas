@@ -52,6 +52,9 @@ namespace Proyecto_Aerolineas
                 if (registrado)
                 {
                     MessageBox.Show("Registro exitoso. Ahora puedes iniciar sesión.");
+                    InicioSesion form = new InicioSesion();
+                    form.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -62,6 +65,13 @@ namespace Proyecto_Aerolineas
             {
                 MessageBox.Show("Error al registrar usuario: " + ex.Message);
             }
+        }
+
+        private void lblInicioSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            InicioSesion form = new InicioSesion();
+            form.Show();
+            this.Hide();
         }
     }
 }
