@@ -31,6 +31,5 @@ Este sistema permite gestionar vuelos, usuarios, reservas y pagos en una aerolí
 
 -- Instrucciones de Compilación y Ejecución
 
-1. Clona este repositorio:
-   bash
-   git clone https://github.com/tu_usuario/sistema-aerolineas.git
+1. Clona este repositorio en bash:
+git clone https://github.com/tu_usuario/sistema-aerolineas.git
