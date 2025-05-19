@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Aerolineas.Data.Interfaces
 {
-    public interface IVueloRepository
+    internal interface IUsuarioRepository
     {
-        void Agregar(Vuelo vuelo);
-        List<Vuelo> ObtenerTodos();
-        Vuelo ObtenerPorId(int id);
-        void Actualizar(Vuelo vuelo);
-        void Eliminar(int id);
+        Usuario ObtenerPorEmailYPassword(string email, string password);
+        Usuario ObtenerPorId(int id);
+        void Registrar(Usuario usuario);
     }
 }
