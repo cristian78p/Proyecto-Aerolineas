@@ -26,11 +26,6 @@ Este sistema permite gestionar vuelos, usuarios, reservas y pagos en una aerolí
 - Patrones de Diseño Repository, Singleton
 - Principios SOLID Aplicación de SRP y OCP
 
--- Capturas Iniciales
-1. Pantalla de registro
-2. Formulario de inicio de sesión
-3. Conexión de prueba a la base de datos
-
 -- Instrucciones de Compilación y Ejecución
 
 1. Clona este repositorio en bash:
