@@ -22,7 +22,7 @@ namespace Proyecto_Aerolineas.Data.Repositorio
         {
             try
             {
-                string query = @"INSERT INTO Vuelos 
+                string query = @"INSERT INTO Vuelo
                                 (NumeroVuelo, Origen, Destino, FechaSalida, HoraSalida, HoraLlegada, Capacidad, Estado)
                                 VALUES (@NumeroVuelo, @Origen, @Destino, @FechaSalida, @HoraSalida, @HoraLlegada, @Capacidad, @Estado)";
                 SqlCommand cmd = new SqlCommand(query, conexion);
@@ -53,7 +53,7 @@ namespace Proyecto_Aerolineas.Data.Repositorio
             List<Vuelo> vuelos = new List<Vuelo>();
             try
             {
-                string query = "SELECT * FROM Vuelos";
+                string query = "SELECT * FROM Vuelo";
                 SqlCommand cmd = new SqlCommand(query, conexion);
                 conexion.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -89,7 +89,7 @@ namespace Proyecto_Aerolineas.Data.Repositorio
             Vuelo vuelo = null;
             try
             {
-                string query = "SELECT * FROM Vuelos WHERE VueloID = @VueloID";
+                string query = "SELECT * FROM Vuelo WHERE VueloID = @VueloID";
                 SqlCommand cmd = new SqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@VueloID", id);
                 conexion.Open();
@@ -125,7 +125,7 @@ namespace Proyecto_Aerolineas.Data.Repositorio
         {
             try
             {
-                string query = @"UPDATE Vuelos SET 
+                string query = @"UPDATE Vuelo SET 
                                 NumeroVuelo = @NumeroVuelo,
                                 Origen = @Origen,
                                 Destino = @Destino,
@@ -163,7 +163,7 @@ namespace Proyecto_Aerolineas.Data.Repositorio
         {
             try
             {
-                string query = "DELETE FROM Vuelos WHERE VueloID = @VueloID";
+                string query = "DELETE FROM Vuelo WHERE VueloID = @VueloID";
                 SqlCommand cmd = new SqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@VueloID", id);
 

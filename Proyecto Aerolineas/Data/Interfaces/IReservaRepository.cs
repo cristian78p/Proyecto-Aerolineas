@@ -13,5 +13,7 @@ namespace Proyecto_Aerolineas.Data.Interfaces
         void Crear(Reserva reserva);
         void Cancelar(int reservaId);
         Reserva ObtenerPorId(int reservaId);
+        List<Reserva> ObtenerTodas();
+
     }
 }

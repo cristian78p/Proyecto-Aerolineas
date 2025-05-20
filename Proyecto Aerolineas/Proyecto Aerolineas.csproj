@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarVuelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarVuelo.Designer.cs">
+      <DependentUpon>AgregarVuelo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\Conexion.cs" />
     <Compile Include="Data\Interfaces\IReservaRepository.cs" />
     <Compile Include="Data\Interfaces\IUsuarioRepository.cs" />
@@ -82,8 +88,14 @@
     <Compile Include="Model\Vuelo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgregarVuelo.resx">
+      <DependentUpon>AgregarVuelo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelAdmin.resx">
+      <DependentUpon>PanelAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PanelPrincipal.resx">
       <DependentUpon>PanelPrincipal.cs</DependentUpon>
