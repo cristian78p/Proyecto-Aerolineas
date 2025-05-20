@@ -15,7 +15,7 @@ Este sistema permite gestionar vuelos, usuarios, reservas y pagos en una aerolí
 - Principios SOLID aplicados.
 
 -- Diagrama Entidad-Relación
-![Diagrama ER](diagrama.png)
+![Diagrama ER](Diagrama.png)
 
 -- Tecnologías Utilizadas
 - Lenguaje: C# (.NET Framework)
