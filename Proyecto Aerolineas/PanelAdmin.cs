@@ -16,22 +16,25 @@ namespace Proyecto_Aerolineas
     public partial class PanelAdmin : Form
     {
         private IVueloRepository vueloRepository = new VueloRepository();
+        private IReservaRepository reservaRepository = new ReservaRepository();
         Usuario Usuario;
         public PanelAdmin(Usuario usuario)
         {
             InitializeComponent();
             Usuario = usuario;
-            CargarVuelos();
+            CargarDatos();
         }
 
         private void btnPanel_Click(object sender, EventArgs e)
         {
             PanelPrincipal form = new PanelPrincipal(Usuario);
         }
-        private void CargarVuelos()
+        private void CargarDatos()
         {
             var vuelos = vueloRepository.ObtenerTodos();
             dgvVuelos.DataSource = vuelos;
+            var reservas = reservaRepository.ObtenerTodas();
+            dgvReservas.DataSource = reservas;  
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -43,7 +46,7 @@ namespace Proyecto_Aerolineas
 
             if (result == DialogResult.OK)
             {
-                CargarVuelos(); 
+                CargarDatos(); 
             }
         }
 
@@ -55,7 +58,7 @@ namespace Proyecto_Aerolineas
             var form = new AgregarVuelo(vuelo); 
             if (form.ShowDialog() == DialogResult.OK)
             {
-                CargarVuelos();
+                CargarDatos();
             }
         }
 
@@ -75,8 +78,13 @@ namespace Proyecto_Aerolineas
             if (confirm == DialogResult.Yes)
             {
                 vueloRepository.Eliminar(vueloSeleccionado.VueloID);
-                CargarVuelos(); 
+                CargarDatos(); 
             }
+        }
+
+        private void dgvVuelos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
