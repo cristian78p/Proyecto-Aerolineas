@@ -59,6 +59,12 @@
     <Compile Include="Data\Repositorio\ReservaRepository.cs" />
     <Compile Include="Data\Repositorio\UsuarioRepository.cs" />
     <Compile Include="Data\Repositorio\VueloRepository.cs" />
+    <Compile Include="FormPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPago.Designer.cs">
+      <DependentUpon>FormPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="InicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>

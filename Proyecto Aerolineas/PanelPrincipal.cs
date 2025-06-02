@@ -61,6 +61,13 @@ namespace Proyecto_Aerolineas
                     return;
                 }
 
+                if (vueloSeleccionado.Capacidad <= 0)
+                {
+                    MessageBox.Show("Este vuelo no tiene asientos disponibles.",
+                        "Vuelo sin capacidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 string asientoAleatorio = GenerarAsientoAleatorio();
 
                 Reserva nuevaReserva = new Reserva
@@ -74,6 +81,15 @@ namespace Proyecto_Aerolineas
                 };
 
                 _reservaRepository.Crear(nuevaReserva);
+
+                vueloSeleccionado.Capacidad--;
+
+                if (vueloSeleccionado.Capacidad == 0)
+                {
+                    vueloSeleccionado.Estado = "Completo";
+                }
+
+                _vueloRepository.Actualizar(vueloSeleccionado);
 
                 MessageBox.Show($"Reserva creada exitosamente.\nVuelo: {vueloSeleccionado.NumeroVuelo}\nAsiento: {asientoAleatorio}\nMonto: $150,000",
                     "Reserva Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -110,12 +126,32 @@ namespace Proyecto_Aerolineas
                     return;
                 }
 
+                TimeSpan tiempoTranscurrido = DateTime.Now - reservaSeleccionada.FechaReserva;
+                if (tiempoTranscurrido.TotalDays > 2)
+                {
+                    MessageBox.Show("No es posible cancelar reservas con más de 2 días de antigüedad.", 
+                        "Plazo excedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 DialogResult confirmacion = MessageBox.Show("¿Está seguro de cancelar esta reserva?", "Confirmar cancelación",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (confirmacion == DialogResult.Yes)
                 {
                     _reservaRepository.Cancelar(reservaSeleccionada.ReservaID);
+                    
+                    Vuelo vuelo = _vueloRepository.ObtenerPorId(reservaSeleccionada.VueloID);
+                    if (vuelo != null)
+                    {
+                        vuelo.Capacidad++;
+                        if (vuelo.Estado == "Completo")
+                        {
+                            vuelo.Estado = "Programado";
+                        }
+                        _vueloRepository.Actualizar(vuelo);
+                    }
+                    
                     MessageBox.Show("Reserva cancelada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CargarDatos();
                 }
