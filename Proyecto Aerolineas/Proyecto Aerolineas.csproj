@@ -53,9 +53,11 @@
       <DependentUpon>AgregarVuelo.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\Conexion.cs" />
+    <Compile Include="Data\Interfaces\IPagoRepository.cs" />
     <Compile Include="Data\Interfaces\IReservaRepository.cs" />
     <Compile Include="Data\Interfaces\IUsuarioRepository.cs" />
     <Compile Include="Data\Interfaces\IVueloRepository.cs" />
+    <Compile Include="Data\Repositorio\PagoRepository.cs" />
     <Compile Include="Data\Repositorio\ReservaRepository.cs" />
     <Compile Include="Data\Repositorio\UsuarioRepository.cs" />
     <Compile Include="Data\Repositorio\VueloRepository.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="InicioSesion.Designer.cs">
       <DependentUpon>InicioSesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Pago.cs" />
     <Compile Include="PanelAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
