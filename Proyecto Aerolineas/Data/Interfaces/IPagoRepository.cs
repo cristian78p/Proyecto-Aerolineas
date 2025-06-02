@@ -10,6 +10,6 @@ namespace Proyecto_Aerolineas.Data.Interfaces
         List<Pago> ObtenerPorReserva(int reservaId);
         List<Pago> ObtenerTodos();
         Pago ObtenerPorId(int pagoId);
-        public void ActualizarMontoYEstado(int reservaId, decimal nuevoMonto, string nuevoEstado);
+        void ActualizarMontoYEstado(int reservaId, decimal nuevoMonto, string nuevoEstado);
     }
 }

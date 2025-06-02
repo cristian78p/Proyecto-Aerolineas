@@ -166,5 +166,44 @@ namespace Proyecto_Aerolineas
         {
             CargarDatos();  
         }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            if (dgvReservas.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione una reserva para realizar el pago.", "Selección requerida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                Reserva reservaSeleccionada = (Reserva)dgvReservas.SelectedRows[0].DataBoundItem;
+
+                if (reservaSeleccionada.EstadoReserva != "Activa")
+                {
+                    MessageBox.Show("Solo se pueden realizar pagos a reservas activas.",
+                        "Estado incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (reservaSeleccionada.MontoTotal <= 0)
+                {
+                    MessageBox.Show("Esta reserva ya está pagada completamente.",
+                        "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                var formPago = new FormPago(reservaSeleccionada);
+                if (formPago.ShowDialog() == DialogResult.OK)
+                {
+                    CargarDatos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al procesar el pago: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
